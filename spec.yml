@@ -1,0 +1,421 @@
+swagger: '2.0'
+info:
+  description: 'Documentación Swagger para el back-end delilah'
+  version: '1.0.0'
+  title: 'Swagger Delilah Restó'
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    email: 'patriciacr0107@gmail.com'
+  license:
+    name: 'Apache 2.0'
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+host: 'delilah.swagger.io'
+basePath: '/v1'
+tags:
+  - name: 'Auth'
+    description: 'Operaciones de registro y login'
+    externalDocs:
+      description: 'Find out more about our store'
+      url: 'http://swagger.io'
+  - name: 'User'
+    description: 'Operaciones de usuario'
+    externalDocs:
+      description: 'Find out more about our store'
+      url: 'http://swagger.io'
+  - name: 'Products'
+    description: 'Operaciones de productos'
+    externalDocs:
+      description: 'Find out more about our store'
+      url: 'http://swagger.io'
+  - name: 'Orders'
+    description: 'Operaciones de pedidos'
+    externalDocs:
+      description: 'Find out more about our store'
+      url: 'http://swagger.io'
+schemes:
+  - 'http'
+paths:
+  /auth/sign-up:
+    post:
+      tags:
+        - 'Auth'
+      summary: 'Crear Usuario'
+      description: 'This can only be done by the logged in user.'
+      operationId: 'createUser'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'Created user object'
+          required: true
+          schema:
+            $ref: '#/definitions/sign-up'
+      responses:
+        default:
+          description: 'successful operation'
+  /auth/sign-in:
+    post:
+      tags:
+        - 'Auth'
+      summary: 'Login usuario'
+      description: 'This can only be done by the logged in user.'
+      operationId: 'signIn'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'Created user object'
+          required: true
+          schema:
+            $ref: '#/definitions/sign-in'
+      responses:
+        default:
+          description: 'successful operation'
+  /user:
+    get:
+      tags:
+        - 'User'
+      summary: 'Get all users [Admin]'
+      description: ''
+      operationId: 'getUserByName'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+  /user/me:
+    get:
+      tags:
+        - 'User'
+      summary: 'Get my user'
+      description: ''
+      operationId: 'findMe'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+  /products:
+    post:
+      tags:
+        - 'Products'
+      summary: 'Create products'
+      description: ''
+      operationId: 'createProduct'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'Created user object'
+          required: true
+          schema:
+            $ref: '#/definitions/create-product'
+      responses:
+        '200':
+          description: 'successful operation'
+    get:
+      tags:
+        - 'Products'
+      summary: 'Get all products'
+      description: ''
+      operationId: 'getProducts'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+  /products/{id}:
+    get:
+      tags:
+        - 'Products'
+      summary: 'Get product by id'
+      description: ''
+      operationId: 'getOneProduct'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of product'
+          required: true
+          type: 'integer'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/product-response'
+    delete:
+      tags:
+        - 'Products'
+      summary: 'Delete product by id'
+      description: ''
+      operationId: 'deleteProduct'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of product'
+          required: true
+          type: 'integer'
+      responses:
+        '200':
+          description: 'successful operation'
+    put:
+      tags:
+        - 'Products'
+      summary: 'Update product by id'
+      description: ''
+      operationId: 'updatetOne'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of product'
+          required: true
+          type: 'integer'
+        - in: 'body'
+          name: 'body'
+          description: 'Update product object'
+          required: true
+          schema:
+            $ref: '#/definitions/update-product'
+      responses:
+        '200':
+          description: 'successful operation'
+  /orders:
+    post:
+      tags:
+        - 'Orders'
+      summary: 'Create products'
+      description: ''
+      operationId: 'create'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'Created user object'
+          required: true
+          schema:
+            $ref: '#/definitions/create-order'
+      responses:
+        '200':
+          description: 'successful operation'
+    get:
+      tags:
+        - 'Orders'
+      summary: 'Get all orders [Admin]'
+      description: ''
+      operationId: 'getOrders'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/get-all-orders'
+  /orders/my-orders:
+    get:
+      tags:
+        - 'Orders'
+      summary: 'Get my orders'
+      description: ''
+      operationId: 'getMyOrders'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/get-my-orders'
+  /orders/{id}:
+    delete:
+      tags:
+        - 'Orders'
+      summary: 'delete order'
+      description: ''
+      operationId: 'deleteOrder'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of order'
+          required: true
+          type: 'integer'
+      responses:
+        '200':
+          description: 'successful operation'
+  /order-lines/{id}:
+    get:
+      tags:
+        - 'Orders'
+      summary: 'Get order detail by id'
+      description: ''
+      operationId: 'getOrderDetail'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of order'
+          required: true
+          type: 'integer'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/get-order-detail'
+    delete:
+      tags:
+        - 'Orders'
+      summary: 'delete order detail to update new detail'
+      description: ''
+      operationId: 'deleteLines'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of order'
+          required: true
+          type: 'integer'
+      responses:
+        '200':
+          description: 'successful operation'
+  /order-lines:
+    post:
+      tags:
+        - 'Orders'
+      summary: 'Create order detail'
+      description: ''
+      operationId: 'createDetail'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'Created order detail object'
+          required: true
+          schema:
+            $ref: '#/definitions/create-detail'
+      responses:
+        '200':
+          description: 'successful operation'
+definitions:
+  sign-up:
+    type: 'object'
+    properties:
+      username:
+        type: 'string'
+      fullname:
+        type: 'string'
+      password:
+        type: 'string'
+      phone:
+        type: 'string'
+      address:
+        type: 'string'
+    xml:
+      name: 'sign-up'
+  sign-in:
+    type: 'object'
+    properties:
+      username:
+        type: 'string'
+      password:
+        type: 'string'
+    xml:
+      name: 'sign-in'
+  create-product:
+    type: 'object'
+    properties:
+      name:
+        type: 'string'
+      price:
+        type: 'number'
+  update-product:
+    type: 'object'
+    properties:
+      name:
+        type: 'string'
+      price:
+        type: 'number'
+        xml:
+          name: 'update-product'
+  product-response:
+    type: 'object'
+    properties:
+      id:
+        type: 'number'
+      name:
+        type: 'string'
+      price:
+        type: 'number'
+  create-order:
+    type: 'object'
+    properties:
+      userId:
+        type: 'number'
+      status:
+        type: 'string'
+      type:
+        type: 'string'
+  get-all-orders:
+    type: 'object'
+    properties:
+      status:
+        type: 'string'
+      type:
+        type: 'string'
+      userId:
+        type: 'number'
+      fullname:
+        type: 'string'
+      address:
+        type: 'string'
+      orderId:
+        type: 'number'
+      total:
+        type: 'number'
+  get-order-detail:
+    type: 'object'
+    properties:
+      price:
+        type: 'number'
+      name:
+        type: 'string'
+      orderId:
+        type: 'number'
+  create-detail:
+    type: 'object'
+    properties:
+      products:
+        type: 'object'
+      orderId:
+        type: 'number'
+  get-my-orders:
+    type: 'object'
+    properties:
+      status:
+        type: 'string'
+      type:
+        type: 'string'
+      userId:
+        type: 'number'
+      fullname:
+        type: 'string'
+      address:
+        type: 'string'
+      orderId:
+        type: 'number'
+      total:
+        type: 'number'
+externalDocs:
+  description: 'Find out more about Swagger'
+  url: 'http://swagger.io'

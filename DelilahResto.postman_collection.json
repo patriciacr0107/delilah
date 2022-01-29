@@ -1,0 +1,510 @@
+{
+	"info": {
+		"_postman_id": "9eac33ed-a159-4e6e-9866-5a3402974cc7",
+		"name": "DelilahResto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth: Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"jvasco\",\r\n\"password\": \"ABC123\",\r\n\"fullname\": \"jorge\",\r\n\"phone\": 3456789,\r\n\"address\": \"calle 123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/delilah-api/auth/sign-up",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"delilah-api",
+						"auth",
+						"sign-up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth: Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"ABC123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/delilah-api/auth/sign-in",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"delilah-api",
+						"auth",
+						"sign-in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User: Get All [Admin]",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJ1c2VybmFtZSI6ImFkbWluIiwiZnVsbG5hbWUiOiJhZG1pbmlzdHJhdG9yIiwicGhvbmUiOjM0NTY3ODksImFkZHJlc3MiOiJjYWxsZSAxMjMiLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjQzMTY4NzkwLCJleHAiOjE2NDMyNTUxOTB9.zEwtIEjgNCVEOkXuvcnGi-jsO6zqPa5SqPPOFBpTItQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/delilah-api/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"delilah-api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User: Me",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJ1c2VybmFtZSI6ImFkbWluIiwiZnVsbG5hbWUiOiJhZG1pbmlzdHJhdG9yIiwicGhvbmUiOjM0NTY3ODksImFkZHJlc3MiOiJjYWxsZSAxMjMiLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjQzMTY4NzkwLCJleHAiOjE2NDMyNTUxOTB9.zEwtIEjgNCVEOkXuvcnGi-jsO6zqPa5SqPPOFBpTItQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/delilah-api/users/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"delilah-api",
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products: CreateOne",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo4LCJ1c2VybmFtZSI6InBjYXJtb25hIiwiZnVsbG5hbWUiOiJwYXRyaWNpYSBjYXJtb25hIiwicGhvbmUiOjMxNzk4MDAwLCJhZGRyZXNzIjoiZW52aWdhZG8iLCJyb2xlIjoidXNlciJ9LCJpYXQiOjE2NDIzOTAyNDQsImV4cCI6MTY0MjQ3NjY0NH0.s0X6t3x58S4CrXSbEYtsQ--hnB2HBpMHwoVC_HSmtpQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"nuevo\",\r\n    \"price\": 310\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/delilah-api/products/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"delilah-api",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products: GetAll",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJ1c2VybmFtZSI6ImFkbWluIiwiZnVsbG5hbWUiOiJhZG1pbmlzdHJhdG9yIiwicGhvbmUiOjM0NTY3ODksImFkZHJlc3MiOiJjYWxsZSAxMjMiLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjQzMjQ2MTEyLCJleHAiOjE2NDMzMzI1MTJ9.JXJFj1qaUINDF2eI5JZF6c-IU1ebUJyRlLaPfuWF-PU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/delilah-api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"delilah-api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products: GetOne",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/delilah-api/products/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"delilah-api",
+						"products",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products: Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"sandwich veggie\",\r\n    \"price\": 310\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/delilah-api/products/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"delilah-api",
+						"products",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products: Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/delilah-api/products/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"delilah-api",
+						"products",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order: Orders [Admin]",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJ1c2VybmFtZSI6ImFkbWluIiwiZnVsbG5hbWUiOiJhZG1pbmlzdHJhdG9yIiwicGhvbmUiOjM0NTY3ODksImFkZHJlc3MiOiJjYWxsZSAxMjMiLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjQzMjUyMDYxLCJleHAiOjE2NDMzMzg0NjF9.Asvus81NUTTmH3eC8b-WGin5x1-h8mzj6W6s1cKrVY4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/delilah-api/orders/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"delilah-api",
+						"orders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order: Order Detail",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJ1c2VybmFtZSI6ImFkbWluIiwiZnVsbG5hbWUiOiJhZG1pbmlzdHJhdG9yIiwicGhvbmUiOjM0NTY3ODksImFkZHJlc3MiOiJjYWxsZSAxMjMiLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjQzMjUyMDYxLCJleHAiOjE2NDMzMzg0NjF9.Asvus81NUTTmH3eC8b-WGin5x1-h8mzj6W6s1cKrVY4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/delilah-api/orders/order-lines/24",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"delilah-api",
+						"orders",
+						"order-lines",
+						"24"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order: Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJ1c2VybmFtZSI6ImFkbWluIiwiZnVsbG5hbWUiOiJhZG1pbmlzdHJhdG9yIiwicGhvbmUiOjM0NTY3ODksImFkZHJlc3MiOiJjYWxsZSAxMjMiLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjQzMTYzNjYzLCJleHAiOjE2NDMyNTAwNjN9.jjdInUjACpBzMdJTB7TcPbbgRwuyx5949HalEW8aKxw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": 8,\r\n    \"status\": \"camino\",\r\n    \"type\": \"tarjeta\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/delilah-api/orders/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"delilah-api",
+						"orders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order: Order Detail",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJ1c2VybmFtZSI6ImFkbWluIiwiZnVsbG5hbWUiOiJhZG1pbmlzdHJhdG9yIiwicGhvbmUiOjM0NTY3ODksImFkZHJlc3MiOiJjYWxsZSAxMjMiLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjQzMTYzNjYzLCJleHAiOjE2NDMyNTAwNjN9.jjdInUjACpBzMdJTB7TcPbbgRwuyx5949HalEW8aKxw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderId\": 24,\r\n    \"products\": [\r\n         10,\r\n         18\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/delilah-api/orders/order-lines",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"delilah-api",
+						"orders",
+						"order-lines"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order: My Orders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJ1c2VybmFtZSI6ImFkbWluIiwiZnVsbG5hbWUiOiJhZG1pbmlzdHJhdG9yIiwicGhvbmUiOjM0NTY3ODksImFkZHJlc3MiOiJjYWxsZSAxMjMiLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjQzMjUyMDYxLCJleHAiOjE2NDMzMzg0NjF9.Asvus81NUTTmH3eC8b-WGin5x1-h8mzj6W6s1cKrVY4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/delilah-api/orders/my-orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"delilah-api",
+						"orders",
+						"my-orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order: Delete Order [Admin]",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJ1c2VybmFtZSI6ImFkbWluIiwiZnVsbG5hbWUiOiJhZG1pbmlzdHJhdG9yIiwicGhvbmUiOjM0NTY3ODksImFkZHJlc3MiOiJjYWxsZSAxMjMiLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjQzMTYzNjYzLCJleHAiOjE2NDMyNTAwNjN9.jjdInUjACpBzMdJTB7TcPbbgRwuyx5949HalEW8aKxw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/delilah-api/orders/23",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"delilah-api",
+						"orders",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order: Delete Detail [Admin]",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJ1c2VybmFtZSI6ImFkbWluIiwiZnVsbG5hbWUiOiJhZG1pbmlzdHJhdG9yIiwicGhvbmUiOjM0NTY3ODksImFkZHJlc3MiOiJjYWxsZSAxMjMiLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjQzMjUyMDYxLCJleHAiOjE2NDMzMzg0NjF9.Asvus81NUTTmH3eC8b-WGin5x1-h8mzj6W6s1cKrVY4a",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/delilah-api/orders/order-lines/24",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"delilah-api",
+						"orders",
+						"order-lines",
+						"24"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
