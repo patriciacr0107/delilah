@@ -53,8 +53,8 @@ Clonar el servidor del repositorio Git
 URL:
 
 ```
-$ git clone https://example.com
-$ cd ../path/to/the/file
+$ git clone https://github.com/patriciacr0107/delilah.git
+$ cd ../DelilahResto
 $ npm install
 $ npm run dev
 ```
